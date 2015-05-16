@@ -18,9 +18,10 @@
 
 namespace Scrutinizer\Tests\PhpAnalyzer\PhpParser\Scope;
 
-use JMS\PhpManipulator\PhpParser\NormalizingNodeVisitor;
+use Scrutinizer\PhpAnalyzer\PhpParser\NodeVisitor\NormalizingNodeVisitor;
 use Scrutinizer\PhpAnalyzer\PhpParser\Scope\Scope;
 use Scrutinizer\PhpAnalyzer\PhpParser\Scope\SyntacticScopeCreator;
+use Scrutinizer\PhpAnalyzer\PhpParser\ParseUtils;
 
 class SyntacticScopeCreatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -33,9 +34,8 @@ class SyntacticScopeCreatorTest extends \PHPUnit_Framework_TestCase
 
     private function createScope($src)
     {
-        $lexer = new \PHPParser_Lexer('<?php class Foo { public function foo($param1, $param2) { '.$src. ' } }');
-        $parser = new \PHPParser_Parser();
-        $ast = $parser->parse($lexer);
+        $parser = ParseUtils::parser();
+        $ast = $parser->parse('<?php class Foo { public function foo($param1, $param2) { '.$src. ' } }');
 
         $traverser = new \PHPParser_NodeTraverser();
         $traverser->addVisitor(new \PHPParser_NodeVisitor_NameResolver());
