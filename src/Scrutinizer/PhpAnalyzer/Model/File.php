@@ -19,9 +19,10 @@
 namespace Scrutinizer\PhpAnalyzer\Model;
 
 use JMS\PhpManipulator\PhpParser\BlockNode;
-use JMS\PhpManipulator\PhpParser\NormalizingNodeVisitor;
+use Scrutinizer\PhpAnalyzer\PhpParser\NodeVisitor\NormalizingNodeVisitor;
 use Scrutinizer\Util\DiffUtils;
 use JMS\Serializer\Annotation as Serializer;
+use Scrutinizer\PhpAnalyzer\PhpParser\ParseUtils;
 
 /**
  * @Serializer\ExclusionPolicy("ALL")
@@ -66,7 +67,7 @@ class File
         $file = new PhpFile($name, $content);
 
         try {
-            $ast = self::$phpParser->parse(new \PHPParser_Lexer($content));
+            $ast = self::$phpParser->parse($content);
         } catch (\PHPParser_Error $parserEx) {
             // This at least allows to run all the passes. For those that
             // need an AST to work, they will obviously not do anything
@@ -116,7 +117,7 @@ class File
 
     private static function initStatic()
     {
-        self::$phpParser = new \PHPParser_Parser();
+        self::$phpParser = ParseUtils::parser();
     }
 
     public function __construct($name, $code)

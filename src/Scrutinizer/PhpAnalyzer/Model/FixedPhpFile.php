@@ -20,7 +20,7 @@ namespace Scrutinizer\PhpAnalyzer\Model;
 
 use Scrutinizer\PhpAnalyzer\Analyzer;
 use Scrutinizer\PhpAnalyzer\PhpParser\NodeTraversal;
-use JMS\PhpManipulator\PhpParser\ParseUtils;
+use Scrutinizer\PhpAnalyzer\PhpParser\ParseUtils;
 use Scrutinizer\PhpAnalyzer\Pass\TypeInferencePass;
 
 class FixedPhpFile extends FixedFile
