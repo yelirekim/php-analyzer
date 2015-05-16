@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0ba968085a28fa83faacdf583c618e1c",
+    "hash": "5d2ae79127f3c091bdfbf3c95c6353f4",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1031,12 +1031,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/scrutinizer-ci/utils.git",
-                "reference": "638484e1925f7f7d8cc4f83648355180e8c02010"
+                "reference": "3679c413154609fb1a40335939ed740441d0ac9f"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/scrutinizer-ci/utils/zipball/638484e1925f7f7d8cc4f83648355180e8c02010",
-                "reference": "638484e1925f7f7d8cc4f83648355180e8c02010",
+                "reference": "3679c413154609fb1a40335939ed740441d0ac9f",
                 "shasum": ""
             },
             "require": {
@@ -1051,7 +1051,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2015-04-01 17:44:22"
+            "time": "2014-12-12 10:57:39"
         },
         {
             "name": "symfony/config",
