@@ -21,10 +21,11 @@ namespace Scrutinizer\Tests\PhpAnalyzer\DataFlow\LiveVariables;
 use Scrutinizer\PhpAnalyzer\ControlFlow\ControlFlowAnalysis;
 use Scrutinizer\PhpAnalyzer\ControlFlow\ControlFlowGraph;
 use Scrutinizer\PhpAnalyzer\DataFlow\DataFlowAnalysis;
-use JMS\PhpManipulator\PhpParser\NormalizingNodeVisitor;
+use Scrutinizer\PhpAnalyzer\PhpParser\NodeVisitor\NormalizingNodeVisitor;
 use Scrutinizer\PhpAnalyzer\PhpParser\Scope\Scope;
 use Scrutinizer\PhpAnalyzer\PhpParser\Scope\SyntacticScopeCreator;
 use Scrutinizer\PhpAnalyzer\DataFlow\LiveVariableAnalysis\LiveVariablesAnalysis;
+use Scrutinizer\PhpAnalyzer\PhpParser\ParseUtils;
 
 class LiveVariablesAnalysisTest extends \PHPUnit_Framework_TestCase
 {
@@ -159,9 +160,8 @@ class LiveVariablesAnalysisTest extends \PHPUnit_Framework_TestCase
     private function computeLiveness($src)
     {
         $src = '<?php class Foo { public function foo($param1, $param2) { '.$src.' } }';
-        $parser = new \PHPParser_Parser();
-        $lexer = new \PHPParser_Lexer($src);
-        $ast = $parser->parse($lexer);
+        $parser = ParseUtils::parser();
+        $ast = $parser->parse($src);
 
         $traverser = new \PHPParser_NodeTraverser();
         $traverser->addVisitor(new \PHPParser_NodeVisitor_NameResolver());
