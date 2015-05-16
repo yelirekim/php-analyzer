@@ -20,8 +20,9 @@ namespace Scrutinizer\Tests\PhpAnalyzer\ControlFlow;
 
 use Scrutinizer\PhpAnalyzer\ControlFlow\ControlFlowAnalysis;
 use Scrutinizer\PhpAnalyzer\ControlFlow\GraphvizSerializer;
+use Scrutinizer\PhpAnalyzer\PhpParser\ParseUtils;
 use JMS\PhpManipulator\PhpParser\BlockNode;
-use JMS\PhpManipulator\PhpParser\NormalizingNodeVisitor;
+use Scrutinizer\PhpAnalyzer\PhpParser\NodeVisitor\NormalizingNodeVisitor;
 use Symfony\Component\Finder\Finder;
 
 class IntegrationTest extends \PHPUnit_Framework_TestCase
@@ -31,8 +32,8 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase
      */
     public function testIntegration($sourceFile)
     {
-        $parser = new \PHPParser_Parser();
-        $ast = $parser->parse(new \PHPParser_Lexer(file_get_contents($sourceFile)));
+        $parser = ParseUtils::parser();
+        $ast = $parser->parse(file_get_contents($sourceFile));
 
         $traverser = new \PHPParser_NodeTraverser();
         $traverser->addVisitor(new \PHPParser_NodeVisitor_NameResolver());
