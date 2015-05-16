@@ -28,7 +28,8 @@ use Scrutinizer\PhpAnalyzer\DataFlow\TypeInference\TypeInference;
 use Scrutinizer\PhpAnalyzer\DataFlow\TypeInference\TypedScopeCreator;
 use Scrutinizer\PhpAnalyzer\Model\Clazz;
 use Scrutinizer\PhpAnalyzer\Model\Method;
-use JMS\PhpManipulator\PhpParser\NormalizingNodeVisitor;
+use Scrutinizer\PhpAnalyzer\PhpParser\NodeVisitor\NormalizingNodeVisitor;
+use Scrutinizer\PhpAnalyzer\PhpParser\ParseUtils;
 
 class TypeInferenceTest extends \PHPUnit_Framework_TestCase
 {
@@ -989,7 +990,7 @@ class TypeInferenceTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->registry = new TypeRegistry();
-        $this->parser = new \PHPParser_Parser();
+        $this->parser = ParseUtils::parser();
     }
 
     private function createClass($name)
@@ -1043,7 +1044,7 @@ class TypeInferenceTest extends \PHPUnit_Framework_TestCase
     private function inMethod($phpCode)
     {
         // Parse the body of the function.
-        $ast = $this->parser->parse(new \PHPParser_Lexer('<?php class Foo { function foo() {'.$phpCode.'} }'));
+        $ast = $this->parser->parse('<?php class Foo { function foo() {'.$phpCode.'} }');
 
         // Normalize the AST.
         $traverser = new \PHPParser_NodeTraverser();
