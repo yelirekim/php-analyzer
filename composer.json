@@ -30,7 +30,7 @@
         "symfony/config": "2.*",
         "symfony/console": "2.*",
         "phpoption/phpoption": "1.*",
-        "phpcollection/phpcollection": "0.2.*",
+        "phpcollection/phpcollection": "0.4.*",
         "psr/log": "1.0.*"
     },
 
@@ -46,6 +46,9 @@
     "autoload": {
         "psr-0": {
             "Scrutinizer": "src/"
-        }
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
     }
 }
