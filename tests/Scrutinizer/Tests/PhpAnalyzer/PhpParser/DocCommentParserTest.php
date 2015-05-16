@@ -161,7 +161,11 @@ class DocCommentParserTest extends \PHPUnit_Framework_TestCase
             'params' => array(
                 $param = new \PHPParser_Node_Param($name),
             ),
-        ), -1, $docComment);
+        ), [], [
+            'comments' => [
+                $docComment
+            ]
+        ]);
         $param->setAttribute('parent', $function);
 
         return $param;

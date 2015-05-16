@@ -21,7 +21,7 @@ namespace Scrutinizer\Tests\PhpAnalyzer\DataFlow\VariableReachability;
 use Scrutinizer\PhpAnalyzer\ControlFlow\ControlFlowAnalysis;
 use Scrutinizer\PhpAnalyzer\PhpParser\NodeTraversal;
 use Scrutinizer\PhpAnalyzer\PhpParser\NodeUtil;
-use JMS\PhpManipulator\PhpParser\ParseUtils;
+use Scrutinizer\PhpAnalyzer\PhpParser\ParseUtils;
 use Scrutinizer\PhpAnalyzer\PhpParser\PreOrderCallback;
 use Scrutinizer\PhpAnalyzer\PhpParser\Scope\SyntacticScopeCreator;
 use Scrutinizer\PhpAnalyzer\DataFlow\VariableReachability\MustBeReachingDefAnalysis;

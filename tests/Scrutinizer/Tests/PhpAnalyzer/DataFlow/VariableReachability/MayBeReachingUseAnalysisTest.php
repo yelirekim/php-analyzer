@@ -18,6 +18,8 @@
 
 namespace Scrutinizer\Tests\PhpAnalyzer\DataFlow\VariableReachability;
 
+use Scrutinizer\PhpAnalyzer\PhpParser\ParseUtils;
+
 class MayBeReachingUseAnalysisTest extends \PHPUnit_Framework_TestCase
 {
     private $analysis;
@@ -147,7 +149,7 @@ class MayBeReachingUseAnalysisTest extends \PHPUnit_Framework_TestCase
     {
         $code = sprintf('<?php function foo($param1, $param2) { %s }', $code);
 
-        $ast = \JMS\PhpManipulator\PhpParser\ParseUtils::parse($code);
+        $ast = ParseUtils::parse($code);
         $scope = (new \Scrutinizer\PhpAnalyzer\PhpParser\Scope\SyntacticScopeCreator())->createScope($ast);
 
         $cfa = new \Scrutinizer\PhpAnalyzer\ControlFlow\ControlFlowAnalysis();
