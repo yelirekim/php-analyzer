@@ -14,7 +14,7 @@ digraph G {
     B8 -> B7
     B9 [shape=box,label="echo 'baz';"]
     B9 -> B5
-    B10 [shape=box,label="Block of PHPParser_Node_Stmt_Else"]
+    B10 [shape=box,label="Block of PhpParser\Node\Stmt\Else_"]
     B10 -> B9
     B3 [shape=box,label="if ($a)"]
     B3 -> B6 [label="true"]

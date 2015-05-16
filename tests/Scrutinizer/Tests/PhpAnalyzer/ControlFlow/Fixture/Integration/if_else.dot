@@ -9,6 +9,6 @@ digraph G {
     B3 -> B5
     B6 [shape=box,label="echo 'bar';"]
     B6 -> B1
-    B4 [shape=box,label="Block of PHPParser_Node_Stmt_Else"]
+    B4 [shape=box,label="Block of PhpParser\Node\Stmt\Else_"]
     B4 -> B6
 }

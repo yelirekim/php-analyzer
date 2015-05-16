@@ -1,21 +1,21 @@
 digraph G {
     B1 [shape=box,label="implicit return",style=filled]
-    B2 [shape=box,label="PHPParser_Node_Stmt_Namespace",style=filled]
+    B2 [shape=box,label="PhpParser\Node\Stmt\Namespace_",style=filled]
     B2 -> B3
-    B4 [shape=box,label="PHPParser_Node_Stmt_Use"]
+    B4 [shape=box,label="PhpParser\Node\Stmt\Use_"]
     B4 -> B5
-    B5 [shape=box,label="PHPParser_Node_Stmt_Use"]
+    B5 [shape=box,label="PhpParser\Node\Stmt\Use_"]
     B5 -> B6
-    B6 [shape=box,label="PHPParser_Node_Stmt_Use"]
+    B6 [shape=box,label="PhpParser\Node\Stmt\Use_"]
     B6 -> B7
-    B7 [shape=box,label="PHPParser_Node_Stmt_Use"]
+    B7 [shape=box,label="PhpParser\Node\Stmt\Use_"]
     B7 -> B8
-    B8 [shape=box,label="PHPParser_Node_Stmt_Use"]
+    B8 [shape=box,label="PhpParser\Node\Stmt\Use_"]
     B8 -> B9
-    B9 [shape=box,label="PHPParser_Node_Stmt_Use"]
+    B9 [shape=box,label="PhpParser\Node\Stmt\Use_"]
     B9 -> B10
-    B10 [shape=box,label="PHPParser_Node_Stmt_Class"]
+    B10 [shape=box,label="PhpParser\Node\Stmt\Class_"]
     B10 -> B1
-    B3 [shape=box,label="Block of PHPParser_Node_Stmt_Namespace"]
+    B3 [shape=box,label="Block of PhpParser\Node\Stmt\Namespace_"]
     B3 -> B4
 }
